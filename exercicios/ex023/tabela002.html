@@ -12,6 +12,7 @@
         table{
             width: 500px;
             border-collapse: collapse;
+            position: relative;
         }
 
         td, th{
@@ -19,12 +20,30 @@
             padding: 8px;
         }
 
-        thead, tfoot{
+        caption{
+            font-size: 1.4em;
+            font-weight: bold;
+            padding: 10px;
             background-color: darkgray;
+        }
+
+        thead, tfoot{
+            background-color: rgb(100, 100, 100);
             color: white;
         }
 
-        td:nth-child(2) { /* propriedade para configurar o td, nesse caso todos os td na segunda linha */
+        thead > tr > th{
+            position: sticky;
+            top: -1px;
+            background-color: rgb(100, 100, 100);
+        }
+
+        tbody > tr:nth-child(even){ /* odd / even ou 2n / 2n-1 */
+            background-color: lightgray;
+            /* font-weight: bold; */
+        }
+
+        td:nth-child(2){ /* propriedade para configurar, nesse caso todos os td na segunda linha */
             text-align: right;
         }
     </style>
@@ -34,15 +53,18 @@
     <!-- 
         Anatomia para tabelas grandes
 
+        caption
         thead
         tbody
         tfoot
      -->
 
         <table>
+            <caption>População das Unidades Federativas
+            </caption>
             <thead>
-                <th>Estado</th>
-                <th>População</th>
+                <th scope="col">Estado</th>
+                <th scope="col" style="width: 100px;">População</th>
             </thead>
             <tbody>
                 <tr>
@@ -155,9 +177,10 @@
                 </tr>
             </tbody>
             <tfoot>
-                <th>Total de Habitantes</th>
+                <th scope="row">Total de Habitantes</th>
                 <td><strong>203 062 512</strong></td>
             </tfoot>
         </table>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore perferendis velit ut hic provident tenetur? Odit quo tempora distinctio amet, quisquam odio fugit ea numquam deleniti, officia dolor exercitationem! Nihil?</p>
 </body>
 </html>
